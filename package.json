@@ -1,0 +1,26 @@
+{
+  "name": "coffee-rest",
+  "version": "1.0.0",
+  "description": "## Installation This project was developed using the following versions:     *     *     *",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp scripts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santos22/coffee-rest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santos22/coffee-rest/issues"
+  },
+  "homepage": "https://github.com/santos22/coffee-rest#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^4.0.2",
+    "typescript": "^2.8.1"
+  }
+}
