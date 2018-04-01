@@ -25,6 +25,7 @@
     "@types/express": "^4.11.1",
     "@types/morgan": "^1.7.35",
     "@types/node": "^9.6.1",
+    "geolib": "^2.0.24",
     "gulp": "^3.9.1",
     "gulp-typescript": "^4.0.2",
     "typescript": "^2.8.1"
