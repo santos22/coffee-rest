@@ -58,5 +58,4 @@ typings/
 .env
 
 # misc
-dist
 .DS_Store

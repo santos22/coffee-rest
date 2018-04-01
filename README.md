@@ -10,16 +10,16 @@ This project was developed using the following versions:
 Run the following commands to start the server:
 
 ```
-gulp scripts
+npm install
 
 npm start
 ```
 
 ## Example call
-Using the Postman app: **http://localhost:3000/locations/45**
+Using the Postman app: **http://localhost:3000/locations/45**:
 
+Result
 ```json
-// Result
 {
     "message": "Success",
     "coffeeShop": {
