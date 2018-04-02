@@ -31,7 +31,7 @@ npm install
 npm start
 ```
 
-The server is now running at **http://localhost:3000**
+The server is now running at http://localhost:3000
 
 ## Testing
 Run the following command to run tests:
