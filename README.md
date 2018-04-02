@@ -40,21 +40,7 @@ npm test
 ```
 
 ## Example call
-Sending a GET on the Postman app: **http://localhost:3000/locations/45**
-
-Result:
-```json
-{
-    "message": "Success",
-    "coffeeShop": {
-        "id": 45,
-        "name": "Pinhole Coffee",
-        "address": "231 Cortland Ave",
-        "latitude": "37.73955564148793",
-        "longitude": "-122.41907167072054"
-    }
-}
-```
+Examples of API requests and responses can be found [here](https://github.com/santos22/coffee-rest/wiki/coffee-rest)
 
 ## Improvements
 The following is a list of improvements that could be implemented to enhance the application (e.g. performance, usability, code readability, etc):
