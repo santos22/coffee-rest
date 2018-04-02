@@ -2,12 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const CoffeeShop_1 = require("../models/CoffeeShop");
+const Coordinate_1 = require("../models/Coordinate");
+const Utils = require("../utils/utils");
 // JSON file holding coffee shop location data
 var CoffeeShops = require('../../locations');
 // Create new coffee shops starting with this id
 var ID = 57;
 var googleMapsClient = require('@google/maps').createClient({
-    key: 'AIzaSyAbXIUcX-k-QiiIM_2urXqwQZulWQ0PrlM'
+    key: 'API-KEY-HERE'
 });
 class CoffeeShopRouter {
     // Initialize the CoffeeShopRouter
@@ -59,19 +61,29 @@ class CoffeeShopRouter {
             });
         }
     }
+    // GET endpoint for returning nearest coffee shop to entered address
     getNearestCoffeeShop(req, res, next) {
         let address = req.params.address;
         googleMapsClient.geocode({
             address: address
         }, function (err, response) {
             if (!err) {
-                console.log(response.json.results);
+                let latitude = response.json.results[0].geometry.location.lat;
+                let longitude = response.json.results[0].geometry.location.lng;
+                let addressCoordinates = new Coordinate_1.Coordinate(latitude, longitude);
+                let nearestDistance = Number.MAX_VALUE;
+                let nearestCoffeeShop = null;
+                for (var i = 0; i < CoffeeShops.length; i++) {
+                    let coffeeShopCoordinates = new Coordinate_1.Coordinate(CoffeeShops[i].latitude, CoffeeShops[i].longitude);
+                    let distance = Utils.getLineDistance(addressCoordinates, coffeeShopCoordinates);
+                    if (distance < nearestDistance) {
+                        nearestDistance = distance;
+                        nearestCoffeeShop = CoffeeShops[i];
+                    }
+                }
+                console.log(nearestCoffeeShop.name + " is " + nearestDistance + " meters away");
             }
         });
-        //let nearestCoffeeShop = new Coordinate(coffeeShop.latitude, coffeeShop.longitude);
-        //console.log(Utils.getLineDistance(nearestCoffeeShop, nearestCoffeeShop)); // Should be 0
-        //let geocodeService = new GeocodeService('986 Market St, San Francisco, CA 94102, USA');
-        //geocodeService.geocode();
         // if (coffeeShop) {
         //   res.status(200)
         //     .send({

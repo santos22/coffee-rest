@@ -1,7 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const geolib = require("geolib");
-function getLineDistance(src, dest) {
-    return geolib.getDistance({ latitude: src.latitude, longitude: src.longitude }, { latitude: dest.latitude, longitude: dest.longitude });
+/**
+ * getLineDistance() returns the distance
+ * (in meters) between two geo coordinates
+ */
+function getLineDistance(start, end) {
+    return geolib.getDistance({ latitude: start.latitude, longitude: start.longitude }, { latitude: end.latitude, longitude: end.longitude });
 }
 exports.getLineDistance = getLineDistance;

@@ -2,9 +2,13 @@ import * as geolib from 'geolib';
 
 import { Coordinate } from "../models/Coordinate";
 
-export function getLineDistance(src: Coordinate, dest: Coordinate) {
+/**
+ * getLineDistance() returns the distance
+ * (in meters) between two geo coordinates
+ */
+export function getLineDistance(start: Coordinate, end: Coordinate) {
     return geolib.getDistance(
-        {latitude: src.latitude, longitude: src.longitude},
-        {latitude: dest.latitude, longitude: dest.longitude}
+        {latitude: start.latitude, longitude: start.longitude},
+        {latitude: end.latitude, longitude: end.longitude}
     );
 }

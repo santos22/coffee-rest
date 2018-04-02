@@ -9,13 +9,16 @@ The goal of coffee-rest was to build an API server that can create a new coffee 
 - [x] GET `/locations/{id}` - Finds coffee shop by id
 - [x] DELETE `/locations/{id}` Deletes a coffee shop
 - [x] PUT `/locations/{id}` - Updates an existing coffee shop
-- [ ] GET `/locations/{address}` - Finds the nearest coffee shop based on entered address
+- [x] GET `/locations/{address}` - Finds the nearest coffee shop based on entered address
 
 ## Installation
 This project was developed using the following versions:
 * Node v9.6.1
 * npm 5.6.0
 * TypeScript 2.8.1
+
+## API Keys
+The endpoint for finding the nearest coffee shop based on the address entered uses the Google Maps Geocoding API. You can get your API key here: https://developers.google.com/maps/documentation/geocoding/start#get-a-key 
 
 ## Running the program
 Run the following commands to start the server:
@@ -57,3 +60,4 @@ The following is a list of improvements that could be implemented to enhance the
 - [ ] Adding validation when creating coffee shops (e.g. checking for actual addresses, valid latitude and longitude coordinates, etc.)
 - [ ] Caching results for finding nearest coffee shops in order to limit calls made to Google API
 - [ ] More tests to handle cases for invalid request parameters, server going down when client sends a request, etc.
+- [ ] Refactor Google Maps Client used in getNearestCoffeeShop into it's own class and handle async results to provide to the user
