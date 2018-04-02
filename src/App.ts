@@ -1,9 +1,8 @@
-import LocationRouter from './routes/LocationRouter';
-
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import * as logger from 'morgan';
-import * as path from 'path';
+
+import CoffeeShopRouter from './routes/CoffeeShopRouter';
 
 // Create and configure an ExpressJS web server
 class App {
@@ -27,8 +26,8 @@ class App {
 
   // Configure API endpoints
   private routes(): void {
-    this.express.use('/locations', LocationRouter);
-    this.express.use('/locations/:id', LocationRouter);
+    this.express.use('/locations', CoffeeShopRouter);
+    this.express.use('/locations/:id', CoffeeShopRouter);
   }
 
 }

@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const LocationRouter_1 = require("./routes/LocationRouter");
 const bodyParser = require("body-parser");
 const express = require("express");
 const logger = require("morgan");
+const CoffeeShopRouter_1 = require("./routes/CoffeeShopRouter");
 // Create and configure an ExpressJS web server
 class App {
     //Run configuration methods on the Express instance
@@ -20,8 +20,8 @@ class App {
     }
     // Configure API endpoints
     routes() {
-        this.express.use('/locations', LocationRouter_1.default);
-        this.express.use('/locations/:id', LocationRouter_1.default);
+        this.express.use('/locations', CoffeeShopRouter_1.default);
+        this.express.use('/locations/:id', CoffeeShopRouter_1.default);
     }
 }
 exports.default = new App().express;

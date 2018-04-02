@@ -1,5 +1,6 @@
-import { Coordinate } from "../src/Coordinate";
 import { GoogleMapsClient } from '@google/maps';
+
+import { Coordinate } from "../src/Coordinate";
 
 export class GeocodeService {
     googleMapsClient: GoogleMapsClient

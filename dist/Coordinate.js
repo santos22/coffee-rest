@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Coordinate {
-    //constructor();
     // ? are optional parameters
     constructor(latitude, longitude) {
         this.latitude = latitude;
