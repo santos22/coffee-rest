@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const CoffeeShop_1 = require("../CoffeeShop");
+const CoffeeShop_1 = require("../models/CoffeeShop");
 // JSON file holding coffee shop location data
 var CoffeeShops = require('../../locations');
 // Create new coffee shops starting with this id

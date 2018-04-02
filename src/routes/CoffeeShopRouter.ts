@@ -1,9 +1,9 @@
 import {Router, Request, Response, NextFunction} from 'express';
 
-import { CoffeeShop } from "../CoffeeShop";
-import { Coordinate } from "../Coordinate";
+import { CoffeeShop } from "../models/CoffeeShop";
+import { Coordinate } from "../models/Coordinate";
 import { GeocodeService } from '../GeocodeService';
-import * as Utils from '../Utils';
+import * as Utils from '../utils/utils';
 
 // JSON file holding coffee shop location data
 var CoffeeShops = require('../../locations');

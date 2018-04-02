@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const maps_1 = require("@google/maps");
-const Coordinate_1 = require("../src/Coordinate");
+const Coordinate_1 = require("../src/models/Coordinate");
 class GeocodeService {
     // Initialize the Google Maps Client
     constructor(address) {
