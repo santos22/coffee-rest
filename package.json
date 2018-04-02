@@ -4,7 +4,7 @@
   "description": "## Installation This project was developed using the following versions:     *     *     *",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --reporter spec --compilers ts:ts-node/register 'test/**/*.test.ts'",
     "start": "node dist/index.js",
     "build": "gulp scripts"
   },
@@ -22,13 +22,20 @@
   "devDependencies": {
     "@google/maps": "^0.4.5",
     "@types/body-parser": "^1.16.8",
+    "@types/chai": "^4.1.2",
+    "@types/chai-http": "^3.0.4",
     "@types/debug": "0.0.30",
     "@types/express": "^4.11.1",
+    "@types/mocha": "^5.0.0",
     "@types/morgan": "^1.7.35",
     "@types/node": "^9.6.1",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
     "geolib": "^2.0.24",
     "gulp": "^3.9.1",
     "gulp-typescript": "^4.0.2",
+    "mocha": "^5.0.5",
+    "ts-node": "^5.0.1",
     "typescript": "^2.8.1"
   },
   "dependencies": {

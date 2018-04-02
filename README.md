@@ -15,6 +15,12 @@ npm install
 npm start
 ```
 
+## Testing
+Run the following command to run tests:
+```
+npm test
+```
+
 ## Example call
 Using the Postman app: **http://localhost:3000/locations/45**:
 
