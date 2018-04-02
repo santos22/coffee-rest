@@ -45,7 +45,7 @@ Examples of API requests and responses can be found [here](https://github.com/sa
 ## Improvements
 The following is a list of improvements that could be implemented to enhance the application (e.g. performance, usability, code readability, etc):
 - [ ] Simple UI for users to use instead of using something like Postman
-- [ ] Adding validation when creating coffee shops (e.g. checking for actual addresses, valid latitude and longitude coordinates, etc.)
+- [ ] Adding validation before creating coffee shops (e.g. checking for actual addresses, valid latitude and longitude coordinates, etc.)
 - [ ] Caching results for finding nearest coffee shop in order to limit calls made to Google API
 - [ ] More tests to handle cases for invalid request parameters, server going down when client sends a request, etc.
 - [ ] Refactor Google Maps Client used in getNearestCoffeeShop into it's own class and handle async results to provide to the user
