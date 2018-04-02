@@ -60,12 +60,9 @@ class CoffeeShopRouter {
         }
     }
     getNearestCoffeeShop(req, res, next) {
-        console.log('getNearestCoffeeShop');
-        let query = req.params.address;
-        //let coffeeShop = CoffeeShops.find(hero => hero.id === query);
-        console.log(req.params.address);
+        let address = req.params.address;
         googleMapsClient.geocode({
-            address: '1600 Amphitheatre Parkway, Mountain View, CA'
+            address: address
         }, function (err, response) {
             if (!err) {
                 console.log(response.json.results);
@@ -146,7 +143,7 @@ class CoffeeShopRouter {
         this.router.post('/', this.createCoffeeShop);
         this.router.get('/', this.getCoffeeShops);
         this.router.get('/:id', this.getCoffeeShop);
-        this.router.get('address/:address', this.getNearestCoffeeShop);
+        this.router.get('/address/:address', this.getNearestCoffeeShop);
         this.router.delete('/:id', this.deleteCoffeeShop);
         this.router.put('/:id', this.updateCoffeeShop);
     }

@@ -28,6 +28,7 @@ class App {
   private routes(): void {
     this.express.use('/locations', CoffeeShopRouter);
     this.express.use('/locations/:id', CoffeeShopRouter);
+    this.express.use('/locations/address/:address', CoffeeShopRouter);
   }
 
 }

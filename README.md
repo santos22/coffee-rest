@@ -35,9 +35,9 @@ npm test
 ```
 
 ## Example call
-Sending a GET on the Postman app: **http://localhost:3000/locations/45**:
+Sending a GET on the Postman app: **http://localhost:3000/locations/45**
 
-Result
+Result:
 ```json
 {
     "message": "Success",

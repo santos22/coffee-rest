@@ -22,6 +22,7 @@ class App {
     routes() {
         this.express.use('/locations', CoffeeShopRouter_1.default);
         this.express.use('/locations/:id', CoffeeShopRouter_1.default);
+        this.express.use('/locations/address/:address', CoffeeShopRouter_1.default);
     }
 }
 exports.default = new App().express;

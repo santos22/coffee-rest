@@ -13,6 +13,7 @@ server.listen(port);
 // Error and listener event handlers
 server.on('error', onError);
 server.on('listening', onListening);
+console.log('server running on localhost: %s', port);
 function normalizePort(val) {
     let port = (typeof val === 'string') ? parseInt(val, 10) : val;
     if (isNaN(port))
