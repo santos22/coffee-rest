@@ -17,7 +17,7 @@ This project was developed using the following versions:
 * npm 5.6.0
 * TypeScript 2.8.1
 
-## API Keys
+## API keys
 The endpoint for finding the nearest coffee shop based on the address entered uses the Google Maps Geocoding API. You can get your API key here: https://developers.google.com/maps/documentation/geocoding/start#get-a-key 
 
 After you receive an API key, replace the placeholder in the code with your new key: https://github.com/santos22/coffee-rest/blob/master/src/routes/CoffeeShopRouter.ts#L15
