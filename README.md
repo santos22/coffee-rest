@@ -26,6 +26,8 @@ npm install
 npm start
 ```
 
+The server is now running at **http://localhost:3000**
+
 ## Testing
 Run the following command to run tests:
 ```
@@ -33,7 +35,7 @@ npm test
 ```
 
 ## Example call
-Using the Postman app: **http://localhost:3000/locations/45**:
+Sending a GET on the Postman app: **http://localhost:3000/locations/45**:
 
 Result
 ```json
@@ -50,7 +52,7 @@ Result
 ```
 
 ## Improvements
-The following is a list of improvements that could be implemented to enhance the application (e.g. performance, code readability, etc):
+The following is a list of improvements that could be implemented to enhance the application (e.g. performance, usability, code readability, etc):
 - [ ] Simple UI for users to use instead of using something like Postman
 - [ ] Adding validation when creating coffee shops (e.g. checking for actual addresses, valid latitude and longitude coordinates, etc.)
 - [ ] Caching results for finding nearest coffee shops in order to limit calls made to Google API
