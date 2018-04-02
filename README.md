@@ -39,7 +39,7 @@ Run the following command to run tests:
 npm test
 ```
 
-## Example call
+## Examples
 Examples of API requests and responses can be found [here](https://github.com/santos22/coffee-rest/wiki/coffee-rest)
 
 ## Improvements
