@@ -6,6 +6,9 @@ const CoffeeShop_1 = require("../models/CoffeeShop");
 var CoffeeShops = require('../../locations');
 // Create new coffee shops starting with this id
 var ID = 57;
+var googleMapsClient = require('@google/maps').createClient({
+    key: 'AIzaSyAbXIUcX-k-QiiIM_2urXqwQZulWQ0PrlM'
+});
 class CoffeeShopRouter {
     // Initialize the CoffeeShopRouter
     constructor() {
@@ -55,6 +58,38 @@ class CoffeeShopRouter {
                 status: res.status
             });
         }
+    }
+    getNearestCoffeeShop(req, res, next) {
+        console.log('getNearestCoffeeShop');
+        let query = req.params.address;
+        //let coffeeShop = CoffeeShops.find(hero => hero.id === query);
+        console.log(req.params.address);
+        googleMapsClient.geocode({
+            address: '1600 Amphitheatre Parkway, Mountain View, CA'
+        }, function (err, response) {
+            if (!err) {
+                console.log(response.json.results);
+            }
+        });
+        //let nearestCoffeeShop = new Coordinate(coffeeShop.latitude, coffeeShop.longitude);
+        //console.log(Utils.getLineDistance(nearestCoffeeShop, nearestCoffeeShop)); // Should be 0
+        //let geocodeService = new GeocodeService('986 Market St, San Francisco, CA 94102, USA');
+        //geocodeService.geocode();
+        // if (coffeeShop) {
+        //   res.status(200)
+        //     .send({
+        //       message: 'Success',
+        //       status: res.status,
+        //       coffeeShop
+        //     });
+        // }
+        // else {
+        //   res.status(404)
+        //     .send({
+        //       message: 'No coffee shop found with the given id.',
+        //       status: res.status
+        //     });
+        // }
     }
     // DELETE endpoint for deleting one coffee shop by id
     deleteCoffeeShop(req, res, next) {
@@ -111,6 +146,7 @@ class CoffeeShopRouter {
         this.router.post('/', this.createCoffeeShop);
         this.router.get('/', this.getCoffeeShops);
         this.router.get('/:id', this.getCoffeeShop);
+        this.router.get('address/:address', this.getNearestCoffeeShop);
         this.router.delete('/:id', this.deleteCoffeeShop);
         this.router.put('/:id', this.updateCoffeeShop);
     }
