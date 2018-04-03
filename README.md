@@ -46,7 +46,8 @@ Examples of API requests and responses can be found [here](https://github.com/sa
 The following is a list of improvements that could be implemented to enhance the application (e.g. performance, usability, code readability, etc):
 - [ ] Save API key as an environment variable
 - [ ] Add a simple UI for users to use instead of using something like Postman
-- [ ] Add validation before creating coffee shops (e.g. checking for actual addresses, valid latitude and longitude coordinates, etc.)
+- [ ] Add validation before creating coffee shops (e.g. valid latitude and longitude coordinates, etc.)
+- [ ] Another consideration would be when accepting an address, to have the user include the city and state since the same street names exist in various states (e.g. 938 Market St, San Francisco, CA 94102 vs. 938 Market St, Reno, NV 89502)
 - [ ] Cache results for finding nearest coffee shop in order to limit calls made to Google API
 - [ ] Add more tests to handle cases for invalid request parameters, server going down when client sends a request, etc.
 - [ ] Refactor Google Maps Client into it's own class and handle async results to provide to the user
