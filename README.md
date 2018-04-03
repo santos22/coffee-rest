@@ -17,7 +17,7 @@ This project was developed using the following versions:
 * npm 5.6.0
 * TypeScript 2.8.1
 
-## API Keys
+## API keys
 The endpoint for finding the nearest coffee shop based on the address entered uses the Google Maps Geocoding API. You can get your API key here: https://developers.google.com/maps/documentation/geocoding/start#get-a-key 
 
 After you receive an API key, replace the placeholder in the code with your new key: https://github.com/santos22/coffee-rest/blob/master/src/routes/CoffeeShopRouter.ts#L15
@@ -31,7 +31,7 @@ npm install
 npm start
 ```
 
-The server is now running at **http://localhost:3000**
+The server is now running at http://localhost:3000
 
 ## Testing
 Run the following command to run tests:
@@ -39,27 +39,13 @@ Run the following command to run tests:
 npm test
 ```
 
-## Example call
-Sending a GET on the Postman app: **http://localhost:3000/locations/45**
-
-Result:
-```json
-{
-    "message": "Success",
-    "coffeeShop": {
-        "id": 45,
-        "name": "Pinhole Coffee",
-        "address": "231 Cortland Ave",
-        "latitude": "37.73955564148793",
-        "longitude": "-122.41907167072054"
-    }
-}
-```
+## Examples
+Examples of API requests and responses can be found [here](https://github.com/santos22/coffee-rest/wiki/coffee-rest)
 
 ## Improvements
 The following is a list of improvements that could be implemented to enhance the application (e.g. performance, usability, code readability, etc):
-- [ ] Simple UI for users to use instead of using something like Postman
-- [ ] Adding validation when creating coffee shops (e.g. checking for actual addresses, valid latitude and longitude coordinates, etc.)
-- [ ] Caching results for finding nearest coffee shop in order to limit calls made to Google API
-- [ ] More tests to handle cases for invalid request parameters, server going down when client sends a request, etc.
-- [ ] Refactor Google Maps Client used in getNearestCoffeeShop into it's own class and handle async results to provide to the user
+- [ ] Add a simple UI for users to use instead of using something like Postman
+- [ ] Add validation before creating coffee shops (e.g. checking for actual addresses, valid latitude and longitude coordinates, etc.)
+- [ ] Cache results for finding nearest coffee shop in order to limit calls made to Google API
+- [ ] Add more tests to handle cases for invalid request parameters, server going down when client sends a request, etc.
+- [ ] Refactor Google Maps Client into it's own class and handle async results to provide to the user
