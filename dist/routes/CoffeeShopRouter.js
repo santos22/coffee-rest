@@ -8,8 +8,9 @@ const Utils = require("../utils/utils");
 var CoffeeShops = require('../../locations');
 // Create new coffee shops starting with this id
 var ID = 57;
+// Create a new client object
 var googleMapsClient = require('@google/maps').createClient({
-    key: 'API-KEY-HERE'
+    key: 'AIzaSyCWDoQM44wkg_FXFwaj09Bn8WJlP7YNDPw'
 });
 class CoffeeShopRouter {
     // Initialize the CoffeeShopRouter
@@ -73,6 +74,8 @@ class CoffeeShopRouter {
                 let addressCoordinates = new Coordinate_1.Coordinate(latitude, longitude);
                 let nearestDistance = Number.MAX_VALUE;
                 let nearestCoffeeShop = null;
+                // Compare address coordinates with coordinates of each existing coffee shop
+                // and update the nearest distance as you go
                 for (var i = 0; i < CoffeeShops.length; i++) {
                     let coffeeShopCoordinates = new Coordinate_1.Coordinate(CoffeeShops[i].latitude, CoffeeShops[i].longitude);
                     let distance = Utils.getLineDistance(addressCoordinates, coffeeShopCoordinates);
@@ -81,24 +84,24 @@ class CoffeeShopRouter {
                         nearestCoffeeShop = CoffeeShops[i];
                     }
                 }
-                console.log(nearestCoffeeShop.name + " is " + nearestDistance + " meters away");
+                let message = nearestCoffeeShop.name + " is " + nearestDistance + " meters away";
+                if (nearestCoffeeShop) {
+                    res.status(200)
+                        .send({
+                        message: message,
+                        status: res.status,
+                        nearestCoffeeShop
+                    });
+                }
+            }
+            else {
+                res.status(404)
+                    .send({
+                    message: 'No near coffee shops found.',
+                    status: res.status
+                });
             }
         });
-        // if (coffeeShop) {
-        //   res.status(200)
-        //     .send({
-        //       message: 'Success',
-        //       status: res.status,
-        //       coffeeShop
-        //     });
-        // }
-        // else {
-        //   res.status(404)
-        //     .send({
-        //       message: 'No coffee shop found with the given id.',
-        //       status: res.status
-        //     });
-        // }
     }
     // DELETE endpoint for deleting one coffee shop by id
     deleteCoffeeShop(req, res, next) {

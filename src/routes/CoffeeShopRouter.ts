@@ -73,7 +73,7 @@ export class CoffeeShopRouter {
   }
 
   // GET endpoint for returning nearest coffee shop to entered address
-  public getNearestCoffeeShop(req: Request, res: Response, next: NextFunction) {
+  private getNearestCoffeeShop(req: Request, res: Response, next: NextFunction) {
     let address = req.params.address;
 
     googleMapsClient.geocode({
@@ -86,6 +86,8 @@ export class CoffeeShopRouter {
           let nearestDistance = Number.MAX_VALUE;
           let nearestCoffeeShop = null
 
+          // Compare address coordinates with coordinates of each existing coffee shop
+          // and update the nearest distance as you go
           for (var i = 0; i < CoffeeShops.length; i++) {
             let coffeeShopCoordinates = new Coordinate(CoffeeShops[i].latitude, CoffeeShops[i].longitude);
             let distance = Utils.getLineDistance(addressCoordinates, coffeeShopCoordinates);
@@ -95,26 +97,24 @@ export class CoffeeShopRouter {
               nearestCoffeeShop = CoffeeShops[i];
             }
           }
-          console.log(nearestCoffeeShop.name + " is " + nearestDistance + " meters away");
 
+          let message = nearestCoffeeShop.name + " is " + nearestDistance + " meters away";
+          if (nearestCoffeeShop) {
+            res.status(200)
+              .send({
+                message: message,
+                status: res.status,
+                nearestCoffeeShop
+            });
+          }
+        } else {
+          res.status(404)
+              .send({
+                message: 'No near coffee shops found.',
+                status: res.status
+          });
         }
     });
-
-    // if (coffeeShop) {
-    //   res.status(200)
-    //     .send({
-    //       message: 'Success',
-    //       status: res.status,
-    //       coffeeShop
-    //     });
-    // }
-    // else {
-    //   res.status(404)
-    //     .send({
-    //       message: 'No coffee shop found with the given id.',
-    //       status: res.status
-    //     });
-    // }
   }
 
   // DELETE endpoint for deleting one coffee shop by id
