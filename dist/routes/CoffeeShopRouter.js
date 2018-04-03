@@ -10,7 +10,7 @@ var CoffeeShops = require('../../locations');
 var ID = 57;
 // Create a new client object
 var googleMapsClient = require('@google/maps').createClient({
-    key: 'AIzaSyCWDoQM44wkg_FXFwaj09Bn8WJlP7YNDPw'
+    key: 'API-KEY-HERE'
 });
 class CoffeeShopRouter {
     // Initialize the CoffeeShopRouter
